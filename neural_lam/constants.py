@@ -86,23 +86,23 @@ PARAM_UNITS = [
 
 # Projection and grid
 # Hard coded for now, but should eventually be part of dataset desc. files
-GRID_SHAPE = (268, 238)  # (y, x)
+GRID_SHAPE = (548, 548)  # (y, x)
 
 LAMBERT_PROJ_PARAMS = {
-    "a": 6367470,
-    "b": 6367470,
-    "lat_0": 63.3,
-    "lat_1": 63.3,
-    "lat_2": 63.3,
-    "lon_0": 15.0,
+    "a": 6371229,
+    "b": 6371229,
+    "lat_0": 50.8,
+    "lat_1": 50.8,
+    "lat_2": 50.8,
+    "lon_0": 4.55,
     "proj": "lcc",
 }
 
 GRID_LIMITS = [  # In projection
-    -1059506.5523409774,  # min x
-    1310493.4476590226,  # max x
-    -1331732.4471934352,  # min y
-    1338267.5528065648,  # max y
+    -355550,  # min x
+    355550,  # max x
+    6014964,  # min y
+    6726064,  # max y
 ]
 
 # Create projection
