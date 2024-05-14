@@ -7,8 +7,8 @@
 |1      |`psfc`                 | Pressure      | Surface               | YES                   | Pa            | `SURFPRESSION`  | 
 |2      |`mslp`                 | Pressure      | Sea level             | YES                   | Pa            | `MSLPRESSURE`   |
 |--     |--                     |--             |--                     |--                     |--             |--             |
-|3      |`nlwrs`                | Longwave Radiation flux | Surface     | YES                   | W/m^2         | `SURFFLU.RAY.SOLA`      |
-|4      |`nswrs`                | Shortwave Radioation flux | Surface   | YES                   | W/m^2         | `SURFFLU.RAY.THER`      |
+|3      |`dlwrs`                | Downward Longwave Radiation flux | Surface     | NO                   | W/m^2         | `SURFRAYT THER DE`      |
+|4      |`dswrs`                | Downward Shortwave Radioation flux | Surface   | NO                   | W/m^2         | `SURFRAYT SOLA DE`      |
 |--     |--                     |--             |--                     |--                     |--             |--             |
 |5      |`t2m`                  | Temperature   | 2 meter ab. surface   | YES                   | K             | `CLSTEMPERATURE`        |
 |6      |`t850`                 | Temperature   | 850 hPa               | YES                   | K             | `P85000TEMPERATUR`      |
@@ -21,7 +21,7 @@
 |--     |--                     |--             |--                     | --                    | --            | --                    |
 |12     |`rh2m`                 | Relative Humidity     | 2 meter ab. surface   | YES           | -             | `CLSHUMI.RELATIVE`      |
 |--     |--                     |--             |--                     | --                    |--             | --                    |
-|13     | `wvint`               | Grid-column integrated water vapour   | All   | YES           | kg/m^2        | `ATMOHUMI TOTALE`       |
+|13     | `cltvi`               | Grid-column integrated precipitable water     | All   | YES           | kg/m^2        | `ATMOHUMI TOTALE`       |
 |--     |--                     |--             |--                     | --                    |--             | --                    |
-|14     | `z1000`               | Geopotential  | 1000 hPa              | YES                   | m^2/s^2       | `P00000GEOPOTENTI`      |
-|15     | `z500`                | Geopotential  | 500 hPa               | YES                   | m^2/s^2       | `P85000GEOPOTENTI`      |
+|14     | `z1000`               | Geopotential Height  | 1000 hPa              | NO                   | m       | `P00000GEOPOTENTI`      |
+|15     | `z500`                | Geopotential Height  | 500 hPa               | NO                   | m       | `P85000GEOPOTENTI`      |
