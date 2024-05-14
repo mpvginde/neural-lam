@@ -14,10 +14,10 @@
 |6      |`t850`                 | Temperature   | 850 hPa               | YES                   | K             | `P85000TEMPERATUR`      |
 |7      |`t500`                 | Temperature   | 500 hPa               | YES                   | K             | `P50000TEMPERATUR`      |
 |--     |--                     |--             |--                     |--                     | --            |--                     |
-|8      | `u2m`                   | Zonol wind    | 2 meter ab. surface   | NO                    | m/s           | `CLSVENT.ZONAL` |
+|8      | `u2m`                   | Zonal wind    | 2 meter ab. surface   | NO                    | m/s           | `CLSVENT.ZONAL` |
 |9      | `v2m`                   | Meridional wind | 2 meter ab. surface | NO                    | m/s           | `CLSVENT.MERIDIEN`      |
 |8      |`u850`                 | Zonal wind    | 850 hPa               | YES                   | m/s           | `P85000VENT_ZONAL`      |
-|9      |`v850                  | Meridional wind       | 850 hPa       | YES                   | m/s           | `P85000VENT_MERID`      |
+|9      |`v850`                  | Meridional wind       | 850 hPa       | YES                   | m/s           | `P85000VENT_MERID`      |
 |--     |--                     |--             |--                     | --                    | --            | --                    |
 |10     |`rh2m`                 | Relative Humidity     | 2 meter ab. surface   | YES           | -             | `CLSHUMI.RELATIVE`      |
 |--     |--                     |--             |--                     | --                    |--             | --                    |
