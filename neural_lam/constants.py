@@ -28,41 +28,41 @@ VAR_LEADS_METRICS_WATCH = {
 PARAM_NAMES = [
     "pres_heightAboveGround_0_instant",
     "pres_heightAboveSea_0_instant",
-    "nlwrs_heightAboveGround_0_accum",
-    "nswrs_heightAboveGround_0_accum",
+    "strd_heightAboveGround_0_accum",
+    "ssrd_heightAboveGround_0_accum",
     "r_heightAboveGround_2_instant",
-    "r_hybrid_65_instant",
+    "r_isobaricInhPa_925_instant",
     "t_heightAboveGround_2_instant",
-    "t_hybrid_65_instant",
-    "t_isobaricInhPa_500_instant",
+    "t_isobaricInhPa_925_instant",
     "t_isobaricInhPa_850_instant",
-    "u_hybrid_65_instant",
+    "t_isobaricInhPa_500_instant",
+    "u_heightAboveGround_2_instant",
     "u_isobaricInhPa_850_instant",
-    "v_hybrid_65_instant",
+    "v_heightAboveGround_2_instant",
     "v_isobaricInhPa_850_instant",
-    "wvint_entireAtmosphere_0_instant",
+    "tcolw_entireAtmosphere_0_instant",
     "z_isobaricInhPa_1000_instant",
     "z_isobaricInhPa_500_instant",
 ]
 
 PARAM_NAMES_SHORT = [
-    "pres_0g",
-    "pres_0s",
-    "nlwrs_0",
-    "nswrs_0",
-    "r_2",
-    "r_65",
-    "t_2",
-    "t_65",
-    "t_500",
-    "t_850",
-    "u_65",
-    "u_850",
-    "v_65",
-    "v_850",
-    "wvint_0",
-    "z_1000",
-    "z_500",
+    "sp",
+    "msl",
+    "strd",
+    "ssrd",
+    "rh2m",
+    "rh925",
+    "t2m",
+    "t925",
+    "t850",
+    "t500",
+    "u2m",
+    "u850",
+    "v2m",
+    "v850",
+    "tcolw",
+    "z1000",
+    "z500",
 ]
 PARAM_UNITS = [
     "Pa",
@@ -101,8 +101,8 @@ LAMBERT_PROJ_PARAMS = {
 GRID_LIMITS = [  # In projection
     -355550,  # min x
     355550,  # max x
-    6014964,  # min y
-    6726064,  # max y
+    -355550,  # min y
+    355550,  # max y
 ]
 
 # Create projection

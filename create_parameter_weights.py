@@ -20,7 +20,7 @@ def main():
     parser.add_argument(
         "--dataset",
         type=str,
-        default="meps_example",
+        default="alaro_1.3km",
         help="Dataset to compute weights for (default: meps_example)",
     )
     parser.add_argument(
@@ -50,7 +50,7 @@ def main():
     w_dict = {
         "2": 1.0,
         "0": 0.1,
-        "65": 0.065,
+        "925": 0.065,
         "1000": 0.1,
         "850": 0.05,
         "500": 0.03,
@@ -69,7 +69,7 @@ def main():
         args.dataset,
         split="train",
         subsample_step=1,
-        pred_length=63,
+        pred_length=34,
         standardize=False,
     )  # Without standardization
     loader = torch.utils.data.DataLoader(
@@ -116,13 +116,13 @@ def main():
         args.dataset,
         split="train",
         subsample_step=1,
-        pred_length=63,
+        pred_length=34,
         standardize=True,
     )  # Re-load with standardization
     loader_standard = torch.utils.data.DataLoader(
         ds_standard, args.batch_size, shuffle=False, num_workers=args.n_workers
     )
-    used_subsample_len = (65 // args.step_length) * args.step_length
+    used_subsample_len = (36 // args.step_length) * args.step_length
 
     diff_means = []
     diff_squares = []

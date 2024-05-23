@@ -14,11 +14,11 @@ from neural_lam import constants, utils
 class WeatherDataset(torch.utils.data.Dataset):
     """
     For our dataset:
-    N_t' = 65
-    N_t = 65//subsample_step (= 21 for 3h steps)
-    dim_x = 268
-    dim_y = 238
-    N_grid = 268x238 = 63784
+    N_t' = 36
+    N_t = 36//subsample_step (= 12 for 3h steps)
+    dim_x = 548
+    dim_y = 548
+    N_grid = 548x548 = 300304
     d_features = 17 (d_features' = 18)
     d_forcing = 5
     """
@@ -41,7 +41,7 @@ class WeatherDataset(torch.utils.data.Dataset):
         )
 
         member_file_regexp = (
-            "nwp*mbr000.npy" if control_only else "nwp*mbr*.npy"
+            "nwp_" + "[0-9]"*10 + ".npy" if control_only else "nwp_" + "[0-9]"*10 + ".npy"
         )
         sample_paths = glob.glob(
             os.path.join(self.sample_dir_path, member_file_regexp)
@@ -55,8 +55,8 @@ class WeatherDataset(torch.utils.data.Dataset):
         self.sample_length = pred_length + 2  # 2 init states
         self.subsample_step = subsample_step
         self.original_sample_length = (
-            65 // self.subsample_step
-        )  # 21 for 3h steps
+            36 // self.subsample_step
+        )  # 12 for 3h steps
         assert (
             self.sample_length <= self.original_sample_length
         ), "Requesting too long time series samples"
@@ -90,7 +90,6 @@ class WeatherDataset(torch.utils.data.Dataset):
             )  # (N_t', dim_x, dim_y, d_features')
         except ValueError:
             print(f"Failed to load {sample_path}")
-
         # Only use every ss_step:th time step, sample which of ss_step
         # possible such time series
         if self.random_subsample:
@@ -102,12 +101,14 @@ class WeatherDataset(torch.utils.data.Dataset):
             subsample_index : subsample_end_index : self.subsample_step
         ]
         # (N_t, dim_x, dim_y, d_features')
-
+        
+        #------------------------------------------------------------------
+        # michielv: Removing feature 15 is no longer needed as it not part of the RMI-dataset
         # Remove feature 15, "z_height_above_ground"
-        sample = torch.cat(
-            (sample[:, :, :, :15], sample[:, :, :, 16:]), dim=3
-        )  # (N_t, dim_x, dim_y, d_features)
-
+        #sample = torch.cat(
+        #    (sample[:, :, :, :15], sample[:, :, :, 16:]), dim=3
+        #)  # (N_t, dim_x, dim_y, d_features)
+        # -----------------------------------------------------------------
         # Accumulate solar radiation instead of just subsampling
         rad_features = full_sample[:, :, :, 2:4]  # (N_t', dim_x, dim_y, 2)
         # Accumulate for first time step
